@@ -52,7 +52,7 @@ const experiences = [
     role: "Data Science Intern",
     duration: "June 2024 – Present",
     description: "Developed deep learning and GCP-based data tools for finance and marketing ops.",
-    logo: "/images/cme-logo.png",
+    logo: `${import.meta.env.BASE_URL}images/cme-logo.png`,
     link: "https://www.cmegroup.com/",
     buttonText: "Visit CME Group"
   },
@@ -61,7 +61,7 @@ const experiences = [
     role: "Teaching Assistant, Stats 303 Data Science",
     duration: "Sept 2024 – Present",
     description: "Taught core ML and Python skills, mentored student projects on social impact topics.",
-    logo: "/images/NU-logo.png",
+    logo: `${import.meta.env.BASE_URL}images/northwestern-logo.png`,
     link: "https://www.northwestern.edu/",
     buttonText: "Learn about Northwestern"
   },
@@ -70,7 +70,7 @@ const experiences = [
     role: "Founding Engineer",
     duration: "Feb 2023 – Present",
     description: "Built a clinical informatics learning platform integrated with MGH/Harvard curriculum.",
-    logo: "/images/learngle-logo.png",
+    logo: `${import.meta.env.BASE_URL}images/learngle-logo.png`,
     link: "https://learngle.com/",
     buttonText: "See Learngle Platform"
   },
@@ -79,7 +79,7 @@ const experiences = [
     role: "Research Assistant",
     duration: "Dec 2022 – Present",
     description: "Created predictive models and cluster analyses using clinical data from MIMIC-IV.",
-    logo: "/images/harvard-logo.png",
+    logo: `${import.meta.env.BASE_URL}images/harvard-logo.png`,
     link: "https://significancelab.org/",
     buttonText: "Explore The Significance Lab"
   }
