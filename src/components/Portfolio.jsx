@@ -61,7 +61,7 @@ const experiences = [
     role: "Teaching Assistant, Stats 303 Data Science",
     duration: "Sept 2024 – Present",
     description: "Taught core ML and Python skills, mentored student projects on social impact topics.",
-    logo: `${import.meta.env.BASE_URL}images/northwestern-logo.png`,
+    logo: `${import.meta.env.BASE_URL}images/NU-logo.png`,
     link: "https://www.northwestern.edu/",
     buttonText: "Learn about Northwestern"
   },
