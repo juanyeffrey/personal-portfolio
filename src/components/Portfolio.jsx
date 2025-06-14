@@ -3,18 +3,19 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { SiPython, SiTensorflow, SiPytorch, SiScikitlearn, SiPandas, SiMysql, SiDocker, SiKubernetes, SiGithub, SiLinkedin, SiOrcid, SiMaildotcom, SiR, SiJavascript, SiNumpy, SiGooglecloud, SiMongodb, SiApachespark, SiHuggingface } from "react-icons/si";
-import { FaAws, FaFileDownload, FaGraduationCap, FaEnvelope, FaCalendarAlt } from "react-icons/fa";
+import { FaAws, FaFileDownload, FaGraduationCap, FaEnvelope, FaCalendarAlt, FaBrain, FaHome, FaChartLine } from "react-icons/fa";
 import { TbBrandOpenai } from "react-icons/tb";
+import { MdHealthAndSafety } from "react-icons/md";
 
 const sectionGradients = {
-  home: "border-2 rounded-2xl border-transparent bg-gradient-to-r from-blue-100 via-purple-50 to-pink-100 p-1",
-  about: "border-2 rounded-2xl border-transparent bg-gradient-to-r from-green-100 via-blue-50 to-purple-100 p-1",
-  skills: "border-2 rounded-2xl border-transparent bg-gradient-to-r from-blue-100 via-cyan-50 to-purple-100 p-1",
-  experience: "border-2 rounded-2xl border-transparent bg-gradient-to-r from-green-100 via-lime-50 to-emerald-100 p-1",
-  research: "border-2 rounded-2xl border-transparent bg-gradient-to-r from-yellow-100 via-orange-50 to-red-100 p-1",
-  projects: "border-2 rounded-2xl border-transparent bg-gradient-to-r from-indigo-100 via-sky-50 to-pink-100 p-1",
-  education: "border-2 rounded-2xl border-transparent bg-gradient-to-r from-purple-100 via-pink-50 to-rose-100 p-1",
-  contact: "border-2 rounded-2xl border-transparent bg-gradient-to-r from-teal-100 via-cyan-50 to-blue-100 p-1"
+  home: "border-2 rounded-2xl border-transparent bg-gradient-to-r from-blue-100 via-indigo-50 to-purple-100 p-1",
+  about: "border-2 rounded-2xl border-transparent bg-gradient-to-r from-emerald-100 via-teal-50 to-cyan-100 p-1",
+  skills: "border-2 rounded-2xl border-transparent bg-gradient-to-r from-sky-100 via-blue-50 to-indigo-100 p-1",
+  experience: "border-2 rounded-2xl border-transparent bg-gradient-to-r from-green-100 via-emerald-50 to-teal-100 p-1",
+  research: "border-2 rounded-2xl border-transparent bg-gradient-to-r from-amber-100 via-yellow-50 to-orange-100 p-1",
+  projects: "border-2 rounded-2xl border-transparent bg-gradient-to-r from-violet-100 via-purple-50 to-fuchsia-100 p-1",
+  education: "border-2 rounded-2xl border-transparent bg-gradient-to-r from-purple-100 via-violet-50 to-indigo-100 p-1",
+  contact: "border-2 rounded-2xl border-transparent bg-gradient-to-r from-teal-100 via-emerald-50 to-green-100 p-1"
 };
 const innerContent = "bg-white rounded-xl p-4";
 
@@ -63,7 +64,7 @@ const projects = [
     tagline: "Reducing AI bias in healthcare through advanced prompt engineering",
     category: "Natural Language Processing",
     technologies: ["Python", "GPT-4", "Claude-3", "Llama-2", "Transformers"],
-    image: "🏥",
+    image: <MdHealthAndSafety size={48} className="text-blue-600" />,
     problemStatement: "Large Language Models exhibit systematic bias in clinical decision-making, with studies showing 31% higher error rates for underrepresented populations, affecting approximately 15 million patients annually in US emergency departments.",
     dataCollection: "Synthesized diverse clinical scenarios (n=10,000) representing different demographic groups, medical conditions, and treatment contexts. Created balanced datasets ensuring equal representation across gender, race, age, and socioeconomic factors.",
     methodology: "Implemented comprehensive fairness metrics including equalized odds and demographic parity. Developed constitutional AI prompts, few-shot learning with diverse examples, and evaluated GPT-4, Claude-3, and Llama-2-70B across 12 clinical scenarios using automated bias assessment pipeline.",
@@ -78,7 +79,7 @@ const projects = [
     tagline: "ML-powered dynamic pricing for the sharing economy",
     category: "Machine Learning",
     technologies: ["Python", "XGBoost", "LSTM", "Random Forest", "Scikit-learn"],
-    image: "🏠",
+    image: <FaHome size={48} className="text-green-600" />,
     problemStatement: "Chicago's $847M Airbnb market lacks accurate pricing tools, with 67% of new hosts underpricing by >20%, leading to $2.1M in lost revenue annually. Existing solutions don't account for dynamic market factors and local competition patterns.",
     dataCollection: "Scraped and processed 127K listings from Airbnb API with real-time availability updates. Collected additional data from Chicago Open Data Portal for neighborhood demographics, crime statistics, and public transportation access.",
     methodology: "Built stacked ensemble combining XGBoost, Random Forest, and LSTM neural networks. Created 52 features including geospatial clusters, seasonal trends, sentiment analysis of reviews, and competitor pricing analysis. Used temporal cross-validation to prevent data leakage.",
@@ -93,7 +94,7 @@ const projects = [
     tagline: "Uncovering healthcare inequities through data science",
     category: "Healthcare Analytics",
     technologies: ["R", "Python", "Statistical Analysis", "Causal Inference"],
-    image: "📊",
+    image: <FaChartLine size={48} className="text-purple-600" />,
     problemStatement: "Diabetes affects 37.3 million Americans with $412B annual healthcare costs, yet treatment outcomes vary significantly by demographics. Analysis aims to identify intervention opportunities that could improve outcomes for 2.8M patients annually.",
     dataCollection: "Analyzed 847K patient records from US hospital database spanning 10 years. Implemented advanced missing data imputation using multiple imputation and ensemble methods. Ensured HIPAA compliance through data anonymization and secure processing.",
     methodology: "Applied logistic regression, survival analysis, and causal inference using propensity score matching. Implemented instrumental variables and difference-in-differences to isolate treatment effects. Stratified analysis by age, race, gender, and socioeconomic factors using AHRQ methodology.",
@@ -264,7 +265,7 @@ export default function Portfolio() {
             <FaFileDownload size={24} className="text-gray-600 hover:text-gray-900" />
           </a>
           <a href="mailto:mailjeffreyyuan@gmail.com" title="Email Me">
-            <SiMaildotcom size={24} className="text-red-600 hover:text-red-700 transition-colors duration-300" />
+            <SiMaildotcom size={24} className="text-gray-600 hover:text-blue-600 transition-colors duration-300" />
           </a>
           <a href="https://www.linkedin.com/in/jeffrey-yuan-668255212/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
             <SiLinkedin size={24} className="text-blue-600 hover:text-blue-800" />
@@ -322,13 +323,13 @@ export default function Portfolio() {
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
             <div className="lg:col-span-2">
-              <p className="text-gray-700 mb-6 leading-relaxed">
+              <p className="text-gray-700 mb-6 leading-relaxed font-medium">
                 I'm a Northwestern University combined BS/MS student pursuing degrees in Data Science, Statistics, and Biological Sciences, with a passion for developing AI solutions that make a meaningful impact on healthcare and society. My unique background combines rigorous statistical training with deep biological knowledge, enabling me to tackle complex problems at the intersection of technology and human well-being.
               </p>
-              <p className="text-gray-700 mb-6 leading-relaxed">
+              <p className="text-gray-700 mb-6 leading-relaxed font-medium">
                 What drives me is the potential to use machine learning not just to solve technical challenges, but to address real human needs. Whether it's reducing bias in clinical AI systems, optimizing healthcare resource allocation, or making education more accessible, I'm motivated by projects that can improve lives at scale.
               </p>
-              <p className="text-gray-700 mb-6 leading-relaxed">
+              <p className="text-gray-700 mb-6 leading-relaxed font-medium">
                 I believe in building <strong>impactful, ethical AI solutions</strong> that prioritize fairness, transparency, and social good. My approach to machine learning is grounded in rigorous scientific methodology, ensuring that models are not only accurate but also responsible and interpretable. I'm particularly committed to addressing bias in AI systems and ensuring that technological advances benefit all communities equitably.
               </p>
             </div>
@@ -358,7 +359,7 @@ export default function Portfolio() {
 
           <div className="mb-8">
             <h3 className="text-2xl font-bold mb-6 text-gray-700">Skills & Technologies</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 lg:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
               {Object.entries(skills).map(([category, skillsList]) => (
                 <div key={category} className="p-4 bg-gray-50 rounded-lg">
                   <h4 className="text-base lg:text-lg font-semibold text-gray-800 mb-3">{category}</h4>
@@ -455,13 +456,13 @@ export default function Portfolio() {
           {projects.map((project) => (
             <motion.div
               key={project.id}
-              whileHover={{ scale: 1.01 }}
+              whileHover={{ scale: 1.02 }}
               className="block"
             >
               <Card className="bg-white border border-gray-200 hover:shadow-lg transition-shadow duration-300">
                 <CardContent className="p-4 sm:p-6 lg:p-8">
                   <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-4 sm:mb-6">
-                    <div className="text-4xl sm:text-5xl lg:text-6xl flex-shrink-0 mx-auto sm:mx-0">{project.image}</div>
+                    <div className="flex-shrink-0 mx-auto sm:mx-0 p-4 bg-gray-50 rounded-xl">{project.image}</div>
                     <div className="flex-1 text-center sm:text-left">
                       <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">{project.title}</h3>
                       <p className="text-base sm:text-lg text-gray-600 mb-4">{project.tagline}</p>
@@ -477,22 +478,22 @@ export default function Portfolio() {
                   <div className="space-y-6">
                     <section>
                       <h4 className="text-lg font-bold text-gray-700 mb-2">Problem Statement & Motivation</h4>
-                      <p className="text-gray-600 leading-relaxed">{project.problemStatement}</p>
+                      <p className="text-gray-600 leading-relaxed font-medium">{project.problemStatement}</p>
                     </section>
 
                     <section>
                       <h4 className="text-lg font-bold text-gray-700 mb-2">Methodology & Technical Approach</h4>
-                      <p className="text-gray-600 leading-relaxed">{project.methodology}</p>
+                      <p className="text-gray-600 leading-relaxed font-medium">{project.methodology}</p>
                     </section>
 
                     <section>
                       <h4 className="text-lg font-bold text-gray-700 mb-2">Results & Impact</h4>
-                      <p className="text-gray-600 leading-relaxed">{project.results}</p>
+                      <p className="text-gray-600 leading-relaxed font-medium">{project.results}</p>
                     </section>
 
                     <section>
                       <h4 className="text-lg font-bold text-gray-700 mb-2">Key Insights</h4>
-                      <p className="text-gray-600 leading-relaxed">{project.insights}</p>
+                      <p className="text-gray-600 leading-relaxed font-medium">{project.insights}</p>
                     </section>
 
                     <div className="pt-4">
