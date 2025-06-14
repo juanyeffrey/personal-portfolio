@@ -255,7 +255,6 @@ const education = {
 
 export default function Portfolio() {
   const [currentPage, setCurrentPage] = useState('home');
-  const [selectedProject, setSelectedProject] = useState(null);
 
   const renderNavigation = () => (
     <div className="sticky top-0 z-50 bg-white py-3 mb-4 shadow-sm rounded-xl">
@@ -487,109 +486,72 @@ export default function Portfolio() {
     </div>
   );
 
-  const renderProjectsPage = () => {
-    if (selectedProject) {
-      return renderProjectDetail(selectedProject);
-    }
-
-    return (
-      <div className={`${sectionGradients.projects} mb-6`}>
-        <div className={innerContent}>
-          <h2 className="text-4xl font-extrabold mb-8 text-gray-800">Featured Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project) => (
-              <motion.div
-                key={project.id}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                className="cursor-pointer"
-                onClick={() => setSelectedProject(project)}
-              >
-                <Card className="bg-white border border-gray-200 hover:shadow-lg transition-shadow duration-300 h-full">
-                  <CardContent className="p-6">
-                    <div className="text-4xl mb-4 text-center">{project.image}</div>
-                    <h3 className="text-xl font-bold mb-2 text-gray-800">{project.title}</h3>
-                    <p className="text-gray-600 mb-3 text-sm">{project.tagline}</p>
-                    <div className="mb-3">
-                      <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">{project.category}</span>
-                    </div>
-                    <div className="flex flex-wrap gap-1 mb-4">
-                      {project.technologies.slice(0, 3).map((tech, i) => (
-                        <span key={i} className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">{tech}</span>
-                      ))}
-                      {project.technologies.length > 3 && (
-                        <span className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded">+{project.technologies.length - 3} more</span>
-                      )}
-                    </div>
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
-                      View Details
-                    </Button>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  const renderProjectDetail = (project) => (
+  const renderProjectsPage = () => (
     <div className={`${sectionGradients.projects} mb-6`}>
       <div className={innerContent}>
-        <div className="mb-6">
-          <Button onClick={() => setSelectedProject(null)} className="mb-4 bg-gray-600 hover:bg-gray-700 text-white">
-            ← Back to Projects
-          </Button>
-          <h1 className="text-4xl font-extrabold text-gray-800 mb-2">{project.title}</h1>
-          <p className="text-xl text-gray-600 mb-4">{project.tagline}</p>
-          <div className="flex gap-2 mb-6">
-            <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full">{project.category}</span>
-            {project.technologies.map((tech, i) => (
-              <span key={i} className="px-2 py-1 bg-gray-100 text-gray-700 text-sm rounded">{tech}</span>
-            ))}
-          </div>
-        </div>
-
+        <h2 className="text-4xl font-extrabold mb-8 text-gray-800">Projects</h2>
         <div className="space-y-8">
-          <section>
-            <h2 className="text-2xl font-bold text-gray-700 mb-3">Problem Statement & Motivation</h2>
-            <p className="text-gray-600 leading-relaxed">{project.problemStatement}</p>
-          </section>
+          {projects.map((project) => (
+            <motion.div
+              key={project.id}
+              whileHover={{ scale: 1.01 }}
+              className="block"
+            >
+              <Card className="bg-white border border-gray-200 hover:shadow-lg transition-shadow duration-300">
+                <CardContent className="p-8">
+                  <div className="flex items-start gap-6 mb-6">
+                    <div className="text-6xl flex-shrink-0">{project.image}</div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold text-gray-800 mb-2">{project.title}</h3>
+                      <p className="text-lg text-gray-600 mb-4">{project.tagline}</p>
+                      <div className="flex gap-2 mb-4">
+                        <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full">{project.category}</span>
+                        {project.technologies.map((tech, i) => (
+                          <span key={i} className="px-2 py-1 bg-gray-100 text-gray-700 text-sm rounded">{tech}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
 
-          <section>
-            <h2 className="text-2xl font-bold text-gray-700 mb-3">Data Collection & Preprocessing</h2>
-            <p className="text-gray-600 leading-relaxed">{project.dataCollection}</p>
-          </section>
+                  <div className="space-y-6">
+                    <section>
+                      <h4 className="text-lg font-bold text-gray-700 mb-2">Problem Statement & Motivation</h4>
+                      <p className="text-gray-600 leading-relaxed">{project.problemStatement}</p>
+                    </section>
 
-          <section>
-            <h2 className="text-2xl font-bold text-gray-700 mb-3">Methodology & Technical Approach</h2>
-            <p className="text-gray-600 leading-relaxed">{project.methodology}</p>
-          </section>
+                    <section>
+                      <h4 className="text-lg font-bold text-gray-700 mb-2">Methodology & Technical Approach</h4>
+                      <p className="text-gray-600 leading-relaxed">{project.methodology}</p>
+                    </section>
 
-          <section>
-            <h2 className="text-2xl font-bold text-gray-700 mb-3">Results & Impact</h2>
-            <p className="text-gray-600 leading-relaxed">{project.results}</p>
-          </section>
+                    <section>
+                      <h4 className="text-lg font-bold text-gray-700 mb-2">Results & Impact</h4>
+                      <p className="text-gray-600 leading-relaxed">{project.results}</p>
+                    </section>
 
-          <section>
-            <h2 className="text-2xl font-bold text-gray-700 mb-3">Key Insights & Future Work</h2>
-            <p className="text-gray-600 leading-relaxed">{project.insights}</p>
-          </section>
+                    <section>
+                      <h4 className="text-lg font-bold text-gray-700 mb-2">Key Insights</h4>
+                      <p className="text-gray-600 leading-relaxed">{project.insights}</p>
+                    </section>
 
-          <section>
-            <h2 className="text-2xl font-bold text-gray-700 mb-3">Code & Reproducibility</h2>
-            <p className="text-gray-600 leading-relaxed mb-4">{project.repoStructure}</p>
-            <Button asChild className="bg-gray-800 hover:bg-gray-900 text-white">
-              <a href={project.link} target="_blank" rel="noopener noreferrer">
-                <SiGithub className="mr-2" /> View on GitHub
-              </a>
-            </Button>
-          </section>
+                    <div className="pt-4">
+                      <Button asChild className="bg-gray-800 hover:bg-gray-900 text-white">
+                        <a href={project.link} target="_blank" rel="noopener noreferrer">
+                          <SiGithub className="mr-2" /> View on GitHub
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>
   );
+
+
 
   const renderResearchPage = () => (
     <div className={`${sectionGradients.research} mb-6`}>
