@@ -291,68 +291,31 @@ export default function Portfolio() {
   const renderHomePage = () => (
     <div>
       {/* Hero Section */}
-      <div className="flex flex-row items-center justify-between pt-12 mb-20 gap-8">
-        <motion.div
-          className="flex-1 flex justify-center"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
-        >
-          <img
-            src={`${import.meta.env.BASE_URL}images/Jeffrey_Yuan_Casual.jpg`}
-            alt="Jeffrey Yuan"
-            className="rounded-2xl shadow-lg w-64 h-64 object-cover"
-          />
-        </motion.div>
-
-        <div className="text-left flex-1">
-          <motion.h1
-            className="text-5xl md:text-6xl font-extrabold text-gray-800 mb-2"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+      <div className="flex flex-col lg:flex-row items-center justify-between pt-8 lg:pt-12 mb-12 lg:mb-20 gap-6 lg:gap-8">
+        <div className="text-center lg:text-left">
+          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-800 mb-4 lg:mb-6">
             Jeffrey Yuan
-          </motion.h1>
-
-          <motion.p
-            className="text-2xl md:text-3xl text-gray-600 mb-6 font-semibold"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-          >
+          </h1>
+          <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-6 lg:mb-8">
             ML Engineer | Data Scientist | Researcher | Solving Complex Problems with AI
-          </motion.p>
-
-          <motion.div
-            className="flex gap-4 mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
+          </p>
+          <div 
+            className="flex flex-col sm:flex-row gap-4 mb-6 justify-center lg:justify-start"
           >
-            <Button onClick={() => setCurrentPage('projects')} className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3">
+            <Button onClick={() => setCurrentPage('projects')} className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 text-base">
               View My Projects
             </Button>
-            <Button asChild className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3">
-              <a href={`${import.meta.env.BASE_URL}resume/Jeffrey_Yuan_Resume_2025.pdf`} download>
-                Download Resume
+            <Button asChild className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 text-base">
+              <a href={`${import.meta.env.BASE_URL}resume/Jeffrey_Yuan_Resume_2025.pdf`} target="_blank" rel="noopener noreferrer">
+                <FaFileDownload className="mr-2" /> Download Resume
               </a>
             </Button>
-            <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3">
-              <a href="https://www.linkedin.com/in/jeffrey-yuan-668255212/" target="_blank" rel="noopener noreferrer">
-                Connect on LinkedIn
-              </a>
-            </Button>
-          </motion.div>
-
-          <motion.p
-            className="text-lg text-gray-700 max-w-2xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
-          >
-            Northwestern student passionate about building impactful, ethical AI solutions that address real-world healthcare and social challenges.
-          </motion.p>
+          </div>
+        </div>
+        
+        <div className="text-center">
+          <div className="text-6xl sm:text-7xl lg:text-8xl mb-4">👨‍💻</div>
+          <p className="text-sm sm:text-base text-gray-500">Ready to innovate</p>
         </div>
       </div>
 
@@ -399,17 +362,19 @@ export default function Portfolio() {
 
           <div className="mb-8">
             <h3 className="text-2xl font-bold mb-6 text-gray-700">Skills & Technologies</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 lg:gap-6">
               {Object.entries(skills).map(([category, skillsList]) => (
                 <div key={category} className="p-4 bg-gray-50 rounded-lg">
-                  <h4 className="text-lg font-semibold text-gray-800 mb-3">{category}</h4>
+                  <h4 className="text-base lg:text-lg font-semibold text-gray-800 mb-3">{category}</h4>
                   <div className="space-y-2">
                     {skillsList.map((skill, i) => (
                       <div key={i} className="flex items-center gap-2">
                         {skill.icon && (
-                          <div className="flex-shrink-0">{skill.icon}</div>
+                          <div className="flex-shrink-0 w-6 h-6 lg:w-8 lg:h-8 flex items-center justify-center">
+                            {React.cloneElement(skill.icon, { size: window.innerWidth < 1024 ? 20 : 32 })}
+                          </div>
                         )}
-                        <span className="text-sm text-gray-700">{skill.name}</span>
+                        <span className="text-xs lg:text-sm text-gray-700">{skill.name}</span>
                       </div>
                     ))}
                   </div>
@@ -498,16 +463,16 @@ export default function Portfolio() {
               className="block"
             >
               <Card className="bg-white border border-gray-200 hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-8">
-                  <div className="flex items-start gap-6 mb-6">
-                    <div className="text-6xl flex-shrink-0">{project.image}</div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-gray-800 mb-2">{project.title}</h3>
-                      <p className="text-lg text-gray-600 mb-4">{project.tagline}</p>
-                      <div className="flex gap-2 mb-4">
-                        <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full">{project.category}</span>
+                <CardContent className="p-4 sm:p-6 lg:p-8">
+                  <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-4 sm:mb-6">
+                    <div className="text-4xl sm:text-5xl lg:text-6xl flex-shrink-0 mx-auto sm:mx-0">{project.image}</div>
+                    <div className="flex-1 text-center sm:text-left">
+                      <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">{project.title}</h3>
+                      <p className="text-base sm:text-lg text-gray-600 mb-4">{project.tagline}</p>
+                      <div className="flex flex-wrap gap-2 mb-4 justify-center sm:justify-start">
+                        <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">{project.category}</span>
                         {project.technologies.map((tech, i) => (
-                          <span key={i} className="px-2 py-1 bg-gray-100 text-gray-700 text-sm rounded">{tech}</span>
+                          <span key={i} className="px-2 py-1 bg-gray-100 text-gray-700 text-xs sm:text-sm rounded">{tech}</span>
                         ))}
                       </div>
                     </div>
