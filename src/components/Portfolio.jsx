@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { SiPython, SiTensorflow, SiPytorch, SiScikitlearn, SiPandas, SiMysql, SiDocker, SiKubernetes, SiGithub, SiLinkedin, SiOrcid, SiMaildotcom } from "react-icons/si";
-import { FaAws, FaFileDownload, FaGraduationCap, FaCertificate, FaEnvelope, FaCalendarAlt } from "react-icons/fa";
+import { FaAws, FaFileDownload, FaGraduationCap, FaEnvelope, FaCalendarAlt } from "react-icons/fa";
 import { TbBrandOpenai } from "react-icons/tb";
 
 const sectionGradients = {
@@ -178,22 +178,22 @@ const experiences = [
 const research = [
   {
     title: "Development and validation of a machine learning framework for improved resource allocation in the emergency department",
-    authors: "Yuan J., Chen S., Rodriguez M., et al.",
-    venue: "Journal of Emergency Medicine",
+    authors: "El Ariss A.B., Kijpaisalratana N., Ahmed S., Yuan J., Coleska A., Marshall A., Luo A.D., He S.",
+    venue: "American Journal of Emergency Medicine",
     date: "2024",
     abstract: "We developed and validated a comprehensive ML framework for predicting emergency department resource needs using MIMIC-IV data. The framework combines ensemble methods with real-time monitoring to optimize staffing and equipment allocation.",
-    contributions: "Led algorithm development, conducted statistical validation, wrote methodology sections. Implemented novel ensemble approach combining time-series forecasting with patient acuity scoring.",
-    link: "https://www.sciencedirect.com/science/article/pii/S0735675724003644?via%3Dihub",
+    contributions: "Co-authored research contributing to algorithm development and statistical validation. Implemented novel ensemble approach combining time-series forecasting with patient acuity scoring.",
+    link: "https://pubmed.ncbi.nlm.nih.gov/39127019/",
     codeLink: "https://github.com/significancelab/ed-resource-allocation"
   },
   {
     title: "NexusGraph: NLP Innovation for Scientific Methodology Replication",
-    authors: "Yuan J., Thompson K., Liu A.",
+    authors: "El Ariss A.B., Kijpaisalratana N., Yuan J., Mohamed A.M.A., Corscadden L.",
     venue: "ConductScience Proceedings",
     date: "2024",
     abstract: "Developed an NLP tool to automatically parse and extract methodological information from scientific papers to improve research reproducibility. The system uses transformer models to identify key experimental parameters and procedures.",
-    contributions: "Designed and implemented the core NLP pipeline, evaluated model performance, conducted user studies with researchers from 15 institutions.",
-    link: "https://conductscience.org/articles/conductscience-proceedings/v1/i1/nexusgraph-nlp-innovation-for-scientific-methodology-replication",
+    contributions: "Co-authored research contributing to NLP pipeline design, evaluated model performance, and conducted user studies with researchers from 15 institutions.",
+    link: "https://research.conductscience.com/articles/conductscience-proceedings/v1/i1/nexusgraph-nlp-innovation-for-scientific-methodology-replication",
     codeLink: "https://github.com/juanyeffrey/nexusgraph"
   },
   {
@@ -252,37 +252,6 @@ const education = {
   ]
 };
 
-const certifications = [
-  {
-    name: "AWS Certified Machine Learning - Specialty",
-    issuer: "Amazon Web Services", 
-    date: "March 2024",
-    credentialId: "AWS-ML-2024-JY-8834",
-    link: "https://aws.amazon.com/certification/certified-machine-learning-specialty/"
-  },
-  {
-    name: "Google Cloud Professional ML Engineer",
-    issuer: "Google Cloud",
-    date: "January 2024", 
-    credentialId: "GCP-ML-2024-JY-5521",
-    link: "https://cloud.google.com/certification/machine-learning-engineer"
-  },
-  {
-    name: "Deep Learning Specialization",
-    issuer: "Coursera/Stanford University",
-    date: "August 2023",
-    credentialId: "DL-SPEC-2023-8845",
-    link: "https://www.coursera.org/specializations/deep-learning"
-  },
-  {
-    name: "TensorFlow Developer Certificate", 
-    issuer: "TensorFlow",
-    date: "June 2023",
-    credentialId: "TF-DEV-2023-JY-4433",
-    link: "https://www.tensorflow.org/certificate"
-  }
-];
-
 export default function Portfolio() {
   const [currentPage, setCurrentPage] = useState('home');
   const [selectedProject, setSelectedProject] = useState(null);
@@ -309,7 +278,6 @@ export default function Portfolio() {
         </div>
         <div className="flex gap-4">
           <button onClick={() => setCurrentPage('home')} className={`font-medium ${currentPage === 'home' ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600'}`}>Home</button>
-          <button onClick={() => setCurrentPage('about')} className={`font-medium ${currentPage === 'about' ? 'text-green-600' : 'text-gray-700 hover:text-green-600'}`}>About</button>
           <button onClick={() => setCurrentPage('experience')} className={`font-medium ${currentPage === 'experience' ? 'text-green-600' : 'text-gray-700 hover:text-green-600'}`}>Experience</button>
           <button onClick={() => setCurrentPage('projects')} className={`font-medium ${currentPage === 'projects' ? 'text-pink-600' : 'text-gray-700 hover:text-pink-600'}`}>Projects</button>
           <button onClick={() => setCurrentPage('research')} className={`font-medium ${currentPage === 'research' ? 'text-yellow-600' : 'text-gray-700 hover:text-yellow-600'}`}>Research</button>
@@ -388,102 +356,76 @@ export default function Portfolio() {
         </div>
       </div>
 
-      {/* Quick Skills Preview */}
-      <div className={`${sectionGradients.skills} mb-6`}>
+      {/* About Me Section */}
+      <div className={`${sectionGradients.about} mb-6`}>
         <div className={innerContent}>
-          <h2 className="text-3xl font-bold mb-6 text-gray-800 text-center">Core Technologies</h2>
-          <div className="grid grid-cols-5 gap-6 justify-items-center">
-            <div className="flex flex-col items-center">
-              <SiPython size={48} color="#3776AB" />
-              <span className="text-base mt-2 text-gray-800 font-medium">Python</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <SiTensorflow size={48} color="#FF6F00" />
-              <span className="text-base mt-2 text-gray-800 font-medium">TensorFlow</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <SiPytorch size={48} color="#EE4C2C" />
-              <span className="text-base mt-2 text-gray-800 font-medium">PyTorch</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <FaAws size={48} color="#FF9900" />
-              <span className="text-base mt-2 text-gray-800 font-medium">AWS</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <TbBrandOpenai size={48} color="#412991" />
-              <span className="text-base mt-2 text-gray-800 font-medium">LangChain</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+          <h2 className="text-4xl font-extrabold mb-8 text-gray-800">About Me</h2>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+            <div className="lg:col-span-2">
+              <h3 className="text-2xl font-bold mb-4 text-gray-700">Elevator Pitch</h3>
+              <p className="text-gray-700 mb-6 leading-relaxed">
+                I'm a Northwestern University student triple-majoring in Data Science, Statistics, and Biological Sciences, with a passion for developing AI solutions that make a meaningful impact on healthcare and society. My unique background combines rigorous statistical training with deep biological knowledge, enabling me to tackle complex problems at the intersection of technology and human well-being.
+              </p>
+              <p className="text-gray-700 mb-6 leading-relaxed">
+                What drives me is the potential to use machine learning not just to solve technical challenges, but to address real human needs. Whether it's reducing bias in clinical AI systems, optimizing healthcare resource allocation, or making education more accessible, I'm motivated by projects that can improve lives at scale.
+              </p>
 
-  const renderAboutPage = () => (
-    <div className={`${sectionGradients.about} mb-6`}>
-      <div className={innerContent}>
-        <h2 className="text-4xl font-extrabold mb-8 text-gray-800">About Me</h2>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-          <div className="lg:col-span-2">
-            <h3 className="text-2xl font-bold mb-4 text-gray-700">Elevator Pitch</h3>
-            <p className="text-gray-700 mb-6 leading-relaxed">
-              I'm a Northwestern University student triple-majoring in Data Science, Statistics, and Biological Sciences, with a passion for developing AI solutions that make a meaningful impact on healthcare and society. My unique background combines rigorous statistical training with deep biological knowledge, enabling me to tackle complex problems at the intersection of technology and human well-being.
-            </p>
-            <p className="text-gray-700 mb-6 leading-relaxed">
-              What drives me is the potential to use machine learning not just to solve technical challenges, but to address real human needs. Whether it's reducing bias in clinical AI systems, optimizing healthcare resource allocation, or making education more accessible, I'm motivated by projects that can improve lives at scale.
-            </p>
-
-            <h3 className="text-2xl font-bold mb-4 text-gray-700">Core Values & Philosophy</h3>
-            <p className="text-gray-700 mb-6 leading-relaxed">
-              I believe in building <strong>impactful, ethical AI solutions</strong> that prioritize fairness, transparency, and social good. My approach to machine learning is grounded in rigorous scientific methodology, ensuring that models are not only accurate but also responsible and interpretable. I'm particularly committed to addressing bias in AI systems and ensuring that technological advances benefit all communities equitably.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="text-2xl font-bold mb-4 text-gray-700">My Journey</h3>
-            <div className="space-y-4">
-              <div className="p-4 bg-gray-50 rounded-lg">
-                <h4 className="font-semibold text-gray-800">2022</h4>
-                <p className="text-sm text-gray-600">Started undergraduate studies at Northwestern, immediately drawn to the intersection of data science and biology</p>
-              </div>
-              <div className="p-4 bg-gray-50 rounded-lg">
-                <h4 className="font-semibold text-gray-800">2023</h4>
-                <p className="text-sm text-gray-600">Joined Harvard Medical School's Significance Lab, beginning my journey in clinical AI research</p>
-              </div>
-              <div className="p-4 bg-gray-50 rounded-lg">
-                <h4 className="font-semibold text-gray-800">2024</h4>
-                <p className="text-sm text-gray-600">Published first papers, secured CME Group internship, founded Learngle to make medical education more accessible</p>
-              </div>
-              <div className="p-4 bg-gray-50 rounded-lg">
-                <h4 className="font-semibold text-gray-800">Present</h4>
-                <p className="text-sm text-gray-600">Continuing research while seeking opportunities to apply ML expertise in industry settings</p>
-              </div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-700">Core Values & Philosophy</h3>
+              <p className="text-gray-700 mb-6 leading-relaxed">
+                I believe in building <strong>impactful, ethical AI solutions</strong> that prioritize fairness, transparency, and social good. My approach to machine learning is grounded in rigorous scientific methodology, ensuring that models are not only accurate but also responsible and interpretable. I'm particularly committed to addressing bias in AI systems and ensuring that technological advances benefit all communities equitably.
+              </p>
             </div>
-          </div>
-        </div>
 
-        <div className={`${sectionGradients.skills} mb-6`}>
-          <div className={innerContent}>
-            <h2 className="text-3xl font-extrabold mb-6 text-gray-800">Skills & Technologies</h2>
-            {Object.entries(skills).map(([category, skillList]) => (
-              <div key={category} className="mb-6">
-                <h3 className="text-xl font-semibold mb-3 text-gray-700">{category}</h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                  {skillList.map((skill, idx) => (
-                    <div key={idx} className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg">
-                      {skill.icon && <div className="flex-shrink-0">{skill.icon}</div>}
-                      <span className="text-sm font-medium text-gray-800">{skill.name}</span>
-                    </div>
-                  ))}
+            <div>
+              <h3 className="text-2xl font-bold mb-4 text-gray-700">My Journey</h3>
+              <div className="space-y-4">
+                <div className="p-4 bg-gray-50 rounded-lg">
+                  <h4 className="font-semibold text-gray-800">2022</h4>
+                  <p className="text-sm text-gray-600">Started undergraduate studies at Northwestern, immediately drawn to the intersection of data science and biology</p>
+                </div>
+                <div className="p-4 bg-gray-50 rounded-lg">
+                  <h4 className="font-semibold text-gray-800">2023</h4>
+                  <p className="text-sm text-gray-600">Joined Harvard Medical School's Significance Lab, beginning my journey in clinical AI research</p>
+                </div>
+                <div className="p-4 bg-gray-50 rounded-lg">
+                  <h4 className="font-semibold text-gray-800">2024</h4>
+                  <p className="text-sm text-gray-600">Began internship at CME Group, applying ML to financial systems while continuing medical research</p>
+                </div>
+                <div className="p-4 bg-gray-50 rounded-lg">
+                  <h4 className="font-semibold text-gray-800">2025</h4>
+                  <p className="text-sm text-gray-600">Expected graduation with plans to pursue ML engineering roles focused on healthcare applications</p>
                 </div>
               </div>
-            ))}
+            </div>
+          </div>
+
+          <div className="mb-8">
+            <h3 className="text-2xl font-bold mb-6 text-gray-700">Skills & Technologies</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+              {Object.entries(skills).map(([category, skillsList]) => (
+                <div key={category} className="p-4 bg-gray-50 rounded-lg">
+                  <h4 className="text-lg font-semibold text-gray-800 mb-3">{category}</h4>
+                  <div className="space-y-2">
+                    {skillsList.map((skill, i) => (
+                      <div key={i} className="flex items-center gap-2">
+                        {skill.icon && (
+                          <div className="flex-shrink-0">{skill.icon}</div>
+                        )}
+                        <span className="text-sm text-gray-700">{skill.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
+
+
 
   const renderExperiencePage = () => (
     <div className={`${sectionGradients.experience} mb-6`}>
@@ -704,7 +646,7 @@ export default function Portfolio() {
   const renderEducationPage = () => (
     <div className={`${sectionGradients.education} mb-6`}>
       <div className={innerContent}>
-        <h2 className="text-4xl font-extrabold mb-8 text-gray-800">Education & Certifications</h2>
+        <h2 className="text-4xl font-extrabold mb-8 text-gray-800">Education</h2>
         
         {/* Academic Background */}
         <div className="mb-10">
@@ -747,30 +689,7 @@ export default function Portfolio() {
           </Card>
         </div>
 
-        {/* Certifications */}
-        <div>
-          <h3 className="text-2xl font-bold text-gray-700 mb-6 flex items-center">
-            <FaCertificate className="mr-3 text-purple-600" />
-            Professional Certifications
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {certifications.map((cert, idx) => (
-              <Card key={idx} className="bg-white border border-gray-200 hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-6">
-                  <h4 className="text-lg font-bold text-gray-800 mb-2">{cert.name}</h4>
-                  <p className="text-gray-600 mb-1"><strong>Issuer:</strong> {cert.issuer}</p>
-                  <p className="text-gray-600 mb-1"><strong>Date:</strong> {cert.date}</p>
-                  <p className="text-gray-600 mb-4"><strong>Credential ID:</strong> {cert.credentialId}</p>
-                  <Button asChild className="bg-purple-600 hover:bg-purple-700 text-white w-full">
-                    <a href={cert.link} target="_blank" rel="noopener noreferrer">
-                      View Credential
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
+
       </div>
     </div>
   );
@@ -868,7 +787,6 @@ export default function Portfolio() {
   const renderCurrentPage = () => {
     switch (currentPage) {
       case 'home': return renderHomePage();
-      case 'about': return renderAboutPage();
       case 'experience': return renderExperiencePage();
       case 'projects': return renderProjectsPage();
       case 'research': return renderResearchPage();
