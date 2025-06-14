@@ -299,24 +299,20 @@ export default function Portfolio() {
           <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-6 lg:mb-8">
             ML Engineer | Data Scientist | Researcher | Solving Complex Problems with AI
           </p>
-          <div 
-            className="flex flex-col sm:flex-row gap-4 mb-6 justify-center lg:justify-start"
-          >
-            <Button onClick={() => setCurrentPage('projects')} className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 text-base">
-              View My Projects
-            </Button>
-            <Button asChild className="bg-gray-800 hover:bg-gray-900 text-white px-6 py-3 text-base">
-              <a href={`${import.meta.env.BASE_URL}resume/Jeffrey_Yuan_Resume_2025.pdf`} target="_blank" rel="noopener noreferrer">
-                <FaFileDownload className="mr-2" /> Download Resume
-              </a>
-            </Button>
-          </div>
         </div>
         
-        <div className="text-center">
-          <div className="text-6xl sm:text-7xl lg:text-8xl mb-4">👨‍💻</div>
-          <p className="text-sm sm:text-base text-gray-500">Ready to innovate</p>
-        </div>
+        <motion.div
+          className="flex-1 flex justify-center"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+        >
+          <img
+            src={`${import.meta.env.BASE_URL}images/Jeffrey_Yuan_Casual.jpg`}
+            alt="Jeffrey Yuan"
+            className="rounded-2xl shadow-lg w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 object-cover"
+          />
+        </motion.div>
       </div>
 
       {/* About Me Section */}
