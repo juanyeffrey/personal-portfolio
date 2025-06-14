@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { SiPython, SiTensorflow, SiPytorch, SiScikitlearn, SiPandas, SiMysql, SiDocker, SiKubernetes, SiGithub, SiLinkedin, SiOrcid, SiMaildotcom } from "react-icons/si";
+import { SiPython, SiTensorflow, SiPytorch, SiScikitlearn, SiPandas, SiMysql, SiDocker, SiKubernetes, SiGithub, SiLinkedin, SiOrcid, SiMaildotcom, SiR, SiJavascript, SiNumpy, SiGooglecloud, SiMongodb, SiApachespark, SiHuggingface } from "react-icons/si";
 import { FaAws, FaFileDownload, FaGraduationCap, FaEnvelope, FaCalendarAlt } from "react-icons/fa";
 import { TbBrandOpenai } from "react-icons/tb";
 
@@ -21,38 +21,38 @@ const innerContent = "bg-white rounded-xl p-4";
 const skills = {
   "Programming Languages": [
     { icon: <SiPython size={32} color="#3776AB" />, name: "Python" },
-    { name: "R" },
-    { name: "SQL" },
-    { name: "JavaScript" }
+    { icon: <SiR size={32} color="#276DC3" />, name: "R" },
+    { icon: <SiMysql size={32} color="#00758F" />, name: "SQL" },
+    { icon: <SiJavascript size={32} color="#F7DF1E" />, name: "JavaScript" }
   ],
   "ML Frameworks & Libraries": [
     { icon: <SiTensorflow size={32} color="#FF6F00" />, name: "TensorFlow" },
     { icon: <SiPytorch size={32} color="#EE4C2C" />, name: "PyTorch" },
     { icon: <SiScikitlearn size={32} color="#F7931E" />, name: "Scikit-learn" },
     { icon: <SiPandas size={32} color="#150458" />, name: "Pandas" },
-    { name: "NumPy" },
-    { name: "Matplotlib" },
-    { name: "Seaborn" }
+    { icon: <SiNumpy size={32} color="#013243" />, name: "NumPy" },
+    { icon: <SiPython size={24} color="#3776AB" />, name: "Matplotlib" },
+    { icon: <SiPython size={24} color="#3776AB" />, name: "Seaborn" }
   ],
   "Cloud Platforms & MLOps": [
     { icon: <FaAws size={32} color="#FF9900" />, name: "AWS" },
-    { name: "Google Cloud Platform" },
+    { icon: <SiGooglecloud size={32} color="#4285F4" />, name: "Google Cloud Platform" },
     { icon: <SiDocker size={32} color="#2496ED" />, name: "Docker" },
     { icon: <SiKubernetes size={32} color="#326CE5" />, name: "Kubernetes" },
-    { name: "MLflow" }
+    { icon: <SiPython size={24} color="#3776AB" />, name: "MLflow" }
   ],
   "Data Tools & Databases": [
     { icon: <SiMysql size={32} color="#00758F" />, name: "MySQL" },
-    { name: "PostgreSQL" },
-    { name: "MongoDB" },
-    { name: "Apache Spark" },
-    { name: "Hadoop" }
+    { icon: <SiMysql size={32} color="#336791" />, name: "PostgreSQL" },
+    { icon: <SiMongodb size={32} color="#47A248" />, name: "MongoDB" },
+    { icon: <SiApachespark size={32} color="#E25A1C" />, name: "Apache Spark" },
+    { icon: <SiApachespark size={24} color="#E25A1C" />, name: "Hadoop" }
   ],
   "Specialized AI Tools": [
     { icon: <TbBrandOpenai size={32} color="#412991" />, name: "LangChain" },
-    { name: "Hugging Face" },
-    { name: "OpenAI API" },
-    { name: "Weights & Biases" }
+    { icon: <SiHuggingface size={32} color="#FFD21E" />, name: "Hugging Face" },
+    { icon: <TbBrandOpenai size={32} color="#412991" />, name: "OpenAI API" },
+    { icon: <SiPython size={24} color="#3776AB" />, name: "Weights & Biases" }
   ]
 };
 
@@ -183,8 +183,7 @@ const research = [
     date: "2024",
     abstract: "We developed and validated a comprehensive ML framework for predicting emergency department resource needs using MIMIC-IV data. The framework combines ensemble methods with real-time monitoring to optimize staffing and equipment allocation.",
     contributions: "Co-authored research contributing to algorithm development and statistical validation. Implemented novel ensemble approach combining time-series forecasting with patient acuity scoring.",
-    link: "https://pubmed.ncbi.nlm.nih.gov/39127019/",
-    codeLink: "https://github.com/significancelab/ed-resource-allocation"
+    link: "https://pubmed.ncbi.nlm.nih.gov/39127019/"
   },
   {
     title: "NexusGraph: NLP Innovation for Scientific Methodology Replication",
@@ -193,8 +192,7 @@ const research = [
     date: "2024",
     abstract: "Developed an NLP tool to automatically parse and extract methodological information from scientific papers to improve research reproducibility. The system uses transformer models to identify key experimental parameters and procedures.",
     contributions: "Co-authored research contributing to NLP pipeline design, evaluated model performance, and conducted user studies with researchers from 15 institutions.",
-    link: "https://research.conductscience.com/articles/conductscience-proceedings/v1/i1/nexusgraph-nlp-innovation-for-scientific-methodology-replication",
-    codeLink: "https://github.com/juanyeffrey/nexusgraph"
+    link: "https://research.conductscience.com/articles/conductscience-proceedings/v1/i1/nexusgraph-nlp-innovation-for-scientific-methodology-replication"
   },
   {
     title: "The Emergency Leadership Dashboard: A Comprehensive System for Visualizing Operations across Educational, Administrative, and Research Sectors",
@@ -226,29 +224,32 @@ const research = [
 ];
 
 const education = {
-  degree: "Bachelor of Science",
-  major: "Data Science, Statistics, and Biological Sciences (Triple Major)",
+  degree: "Combined BS/MS Program",
+  major: "Statistics and Data Science, with additional major in Biological Sciences",
   university: "Northwestern University",
   location: "Evanston, IL",
-  graduationDate: "Expected June 2025",
-  gpa: "3.8/4.0",
+  graduationDate: "Expected June 2026",
+  gpa: "3.98/4.0",
   relevantCoursework: [
-    "Machine Learning (STAT 301)",
-    "Deep Learning (CS 349)", 
-    "Statistical Learning (STAT 303)",
-    "Data Structures & Algorithms (CS 214)",
-    "Linear Algebra (MATH 290)",
-    "Probability & Statistics (STAT 210)",
-    "Calculus Sequence (MATH 220-226)",
-    "Bioinformatics (BIOL 329)",
-    "Computational Biology (BIOL 390)",
-    "Research Methods in Statistics (STAT 320)"
+    "STAT 320-1,2,3: Statistical Theory & Methods",
+    "STAT 350: Regression Analysis", 
+    "STAT 353: Advanced Regression",
+    "STAT 415: Introduction to Machine Learning",
+    "STAT 301-1,2,3: Data Science with R",
+    "STAT 302: Data Visualization",
+    "STAT 304: Data Structures & Algorithms for Data Science",
+    "STAT 305: Information Management for Data Science",
+    "STAT 362: Advanced Machine Learning for Data Science",
+    "MATH 240: Linear Algebra",
+    "MATH 230-1,2: Multivariable Calculus",
+    "BIOL_SCI 323: Bioinformatics"
   ],
   honors: [
-    "Dean's List (2022-2024)",
-    "Outstanding Research Award - Northwestern UROC Program (2024)",
-    "Undergraduate Research Grant Recipient (2023)",
-    "Data Science Program Excellence Award (2024)"
+    "Dean's List (Fall 2022, Winter 2023, Spring 2023, Fall 2023, Winter 2024, Spring 2024, Fall 2024)",
+    "Northwestern Merit Scholarship Recipient",
+    "Phi Beta Kappa Honor Society (Junior Year Induction)",
+    "Outstanding Achievement in Statistics Award",
+    "Undergraduate Research Grant Recipient"
   ]
 };
 
@@ -363,15 +364,12 @@ export default function Portfolio() {
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
             <div className="lg:col-span-2">
-              <h3 className="text-2xl font-bold mb-4 text-gray-700">Elevator Pitch</h3>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                I'm a Northwestern University student triple-majoring in Data Science, Statistics, and Biological Sciences, with a passion for developing AI solutions that make a meaningful impact on healthcare and society. My unique background combines rigorous statistical training with deep biological knowledge, enabling me to tackle complex problems at the intersection of technology and human well-being.
+                I'm a Northwestern University combined BS/MS student pursuing degrees in Data Science, Statistics, and Biological Sciences, with a passion for developing AI solutions that make a meaningful impact on healthcare and society. My unique background combines rigorous statistical training with deep biological knowledge, enabling me to tackle complex problems at the intersection of technology and human well-being.
               </p>
               <p className="text-gray-700 mb-6 leading-relaxed">
                 What drives me is the potential to use machine learning not just to solve technical challenges, but to address real human needs. Whether it's reducing bias in clinical AI systems, optimizing healthcare resource allocation, or making education more accessible, I'm motivated by projects that can improve lives at scale.
               </p>
-
-              <h3 className="text-2xl font-bold mb-4 text-gray-700">Core Values & Philosophy</h3>
               <p className="text-gray-700 mb-6 leading-relaxed">
                 I believe in building <strong>impactful, ethical AI solutions</strong> that prioritize fairness, transparency, and social good. My approach to machine learning is grounded in rigorous scientific methodology, ensuring that models are not only accurate but also responsible and interpretable. I'm particularly committed to addressing bias in AI systems and ensuring that technological advances benefit all communities equitably.
               </p>
@@ -626,13 +624,6 @@ export default function Portfolio() {
                         View Paper
                       </a>
                     </Button>
-                    {paper.codeLink && (
-                      <Button asChild className="bg-gray-800 hover:bg-gray-900 text-white">
-                        <a href={paper.codeLink} target="_blank" rel="noopener noreferrer">
-                          <SiGithub className="mr-2" /> View Code
-                        </a>
-                      </Button>
-                    )}
                   </div>
                 </CardContent>
               </Card>
