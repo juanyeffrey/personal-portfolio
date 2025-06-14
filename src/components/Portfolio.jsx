@@ -291,8 +291,8 @@ export default function Portfolio() {
   const renderHomePage = () => (
     <div>
       {/* Hero Section */}
-      <div className="flex flex-col lg:flex-row items-center justify-between pt-8 lg:pt-12 mb-12 lg:mb-20 gap-6 lg:gap-8">
-        <div className="text-center lg:text-left">
+      <div className="flex flex-col items-center pt-8 lg:pt-12 mb-12 lg:mb-20 gap-6 lg:gap-8">
+        <div className="text-center">
           <h1 className="text-3xl sm:text-4xl lg:text-6xl font-extrabold text-gray-800 mb-4 lg:mb-6">
             Jeffrey Yuan
           </h1>
@@ -302,7 +302,7 @@ export default function Portfolio() {
         </div>
         
         <motion.div
-          className="flex-1 flex justify-center"
+          className="w-full flex justify-center"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.6, duration: 0.6 }}
@@ -310,7 +310,7 @@ export default function Portfolio() {
           <img
             src={`${import.meta.env.BASE_URL}images/Jeffrey_Yuan_Casual.jpg`}
             alt="Jeffrey Yuan"
-            className="rounded-2xl shadow-lg w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 object-cover"
+            className="rounded-2xl shadow-lg w-full max-w-md object-cover"
           />
         </motion.div>
       </div>
