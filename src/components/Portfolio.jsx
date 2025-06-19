@@ -61,46 +61,43 @@ const projects = [
   {
     id: 1,
     title: "LLM Bias Mitigation in Clinical Reasoning",
-    tagline: "Reducing AI bias in healthcare through advanced prompt engineering",
+    tagline: "Assessing how age and gender affect LLM accuracy in clinical reasoning",
     category: "Natural Language Processing",
-    technologies: ["Python", "GPT-4", "Claude-3", "Llama-2", "Transformers"],
+    technologies: ["Python", "Llama-3", "Transformers", "Data Analytics"],
     image: <MdHealthAndSafety size={48} className="text-blue-600" />,
-    problemStatement: "Large Language Models exhibit systematic bias in clinical decision-making, with studies showing 31% higher error rates for underrepresented populations, affecting approximately 15 million patients annually in US emergency departments.",
-    dataCollection: "Synthesized diverse clinical scenarios (n=10,000) representing different demographic groups, medical conditions, and treatment contexts. Created balanced datasets ensuring equal representation across gender, race, age, and socioeconomic factors.",
-    methodology: "Implemented comprehensive fairness metrics including equalized odds and demographic parity. Developed constitutional AI prompts, few-shot learning with diverse examples, and evaluated GPT-4, Claude-3, and Llama-2-70B across 12 clinical scenarios using automated bias assessment pipeline.",
-    results: "Decreased gender bias by 43% and racial bias by 38% across all models. Improved F1-score from 0.73 to 0.87 for underrepresented groups while maintaining diagnostic accuracy and reducing harmful stereotyping by 52%. Results validated by 3 emergency medicine physicians.",
-    insights: "Revealed that prompt engineering alone can significantly reduce AI bias without retraining. Most effective technique was 'perspective-taking prompts' that explicitly ask models to consider multiple demographic contexts. Future work includes extending to other medical specialties.",
-    repoStructure: "src/bias_detection/ - fairness metrics implementation, prompts/ - constitutional AI templates, evaluation/ - automated assessment pipeline, docs/ - methodology documentation",
+    problemStatement: "Large Language Models (LLMs) used in healthcare may carry biases related to gender, age, and race, potentially reinforcing harmful stereotypes and impacting patient care. These biases can shape future medical professionals' decision-making and affect patient outcomes.",
+    dataCollection: "Accessed 10,179 medical exam questions, tagging them by age and gender. Organized test questions by patient gender (male/female) and age (toddler, child, adult, senior) to assess accuracy differences across demographics.",
+    methodology: "Utilized the Llama 3.1 language model via its publicly available API, maintaining consistent model configuration. Inputted all 10,179 test questions independently, recording answers and calculating accuracy for each subgroup. Varied prompts across four iterations to asses the effects of prompt engineering on LLM accuracy",
+    results: "Observed no significant differences in accuracy across the four prompts, but found a significant difference in accuracy for adults. No significant differences in accuracy were found between males and females. Accuracy was highest when the LLM was unprompted compared to being provided key phrases (e.g., 'unbiased', 'doctor'), which decreased accuracy to 48.96%. Toddler-related questions showed the highest accuracy across all prompts.",
+    insights: "Demonstrated that prompting the LLM with terms like 'unbiased' or 'doctor' decreased accuracy, potentially due to 'model collapse'. The study highlighted the importance of continuous reassessment of LLM bias in model outputs. Future research should subdivide the adult age group for more granular analysis and investigate the impact of race on model accuracy.",
     link: "https://github.com/juanyeffrey/MDPlus_Datathon/tree/main"
   },
   {
     id: 2,
-    title: "Ensemble-Based Airbnb Price Optimization",
+    title: "Ensemble-Based Airbnb Price Prediction",
     tagline: "ML-powered dynamic pricing for the sharing economy",
     category: "Machine Learning",
-    technologies: ["Python", "XGBoost", "LSTM", "Random Forest", "Scikit-learn"],
+    technologies: ["Python", "XGBoost", "Random Forest", "Supervised Learning", "Scikit-learn"],
     image: <FaHome size={48} className="text-green-600" />,
-    problemStatement: "Chicago's $847M Airbnb market lacks accurate pricing tools, with 67% of new hosts underpricing by >20%, leading to $2.1M in lost revenue annually. Existing solutions don't account for dynamic market factors and local competition patterns.",
-    dataCollection: "Scraped and processed 127K listings from Airbnb API with real-time availability updates. Collected additional data from Chicago Open Data Portal for neighborhood demographics, crime statistics, and public transportation access.",
-    methodology: "Built stacked ensemble combining XGBoost, Random Forest, and LSTM neural networks. Created 52 features including geospatial clusters, seasonal trends, sentiment analysis of reviews, and competitor pricing analysis. Used temporal cross-validation to prevent data leakage.",
-    results: "Achieved RMSE of $23.40 and MAE of $18.60 (15% improvement over baseline). Predictions within $25 of actual prices 89% of the time. Model suggests pricing changes that could increase host revenue by average 18%. Feature importance: Location cluster (32%), seasonal demand (24%), property amenities (19%).",
-    insights: "Ensemble approach proved superior with XGBoost handling non-linear relationships and LSTM capturing temporal patterns. Surprising finding: review sentiment was less predictive than review frequency. Future enhancements include incorporating competitor pricing data.",
-    repoStructure: "models/ - ensemble pipeline, features/ - engineering scripts, api/ - prediction service, notebooks/ - analysis and visualization, deployment/ - Docker containers",
+    problemStatement: "Chicago's Airbnb market lacks accurate pricing tools, with several new hosts underpricing by >20%, leading to $2.1M in lost revenue annually. Existing solutions don't account for dynamic market factors and local competition patterns.",
+    dataCollection: "Processed listing data from Airbnb for the city of Chicago in 2023",
+    methodology: "Built stacked ensemble combining XGBoost, Random Forest, and Catboost models. Created 52 features including geospatial clusters, seasonal trends, and sentiment of reviews.",
+    results: "Achieved RMSE of $9.83. Predictions within $5 of actual prices 96% of the time. Model suggests pricing changes that could increase host revenue by an average of 18%.",
+    insights: "Ensemble approach proved superior with several boosting and bagging based supervised learning models handling non-linear relationships. Surprising finding: review sentiment was less predictive than review frequency. Future enhancements include incorporating competitor pricing data.",
     link: "https://github.com/juanyeffrey/Airbnb-Price-Prediction/tree/main"
   },
   {
     id: 3,
     title: "Demographic Disparities in Diabetes Care Analytics",
-    tagline: "Uncovering healthcare inequities through data science",
+    tagline: "Identified factors affecting diabetic patient outcomes to improve equitable care.",
     category: "Healthcare Analytics",
-    technologies: ["R", "Python", "Statistical Analysis", "Causal Inference"],
+    technologies: ["Python", "Statistical Analysis", "Exlporatory Data Analysis", "Data Visualization"],
     image: <FaChartLine size={48} className="text-purple-600" />,
     problemStatement: "Diabetes affects 37.3 million Americans with $412B annual healthcare costs, yet treatment outcomes vary significantly by demographics. Analysis aims to identify intervention opportunities that could improve outcomes for 2.8M patients annually.",
-    dataCollection: "Analyzed 847K patient records from US hospital database spanning 10 years. Implemented advanced missing data imputation using multiple imputation and ensemble methods. Ensured HIPAA compliance through data anonymization and secure processing.",
-    methodology: "Applied logistic regression, survival analysis, and causal inference using propensity score matching. Implemented instrumental variables and difference-in-differences to isolate treatment effects. Stratified analysis by age, race, gender, and socioeconomic factors using AHRQ methodology.",
-    results: "Identified 23% higher readmission rates for Hispanic patients, 18% for Black patients vs. white patients. Intensive glucose management reduced complications by 31% (p<0.001, CI: 0.24-0.38). Findings suggest universal diabetes education could prevent 15,000 complications annually, reducing costs by $2.4B.",
-    insights: "Socioeconomic factors compound racial disparities in diabetes care. Early intervention programs show highest ROI. Most actionable finding: ML models can identify high-risk patients 6 months earlier than current methods, enabling preventive interventions.",
-    repoStructure: "analysis/ - statistical models and tests, visualization/ - publication-ready plots, data/ - preprocessing and cleaning scripts, reports/ - findings and interpretations",
+    dataCollection: "Utilized the CDC Diabetes Surveillance Dataset (2000-2022) for national diabetes incidence trends. Integrated the Diabetes 130 US Hospitals dataset (1999-2008), tracking clinical care statistics for admitted diabetic patients, including procedures, medications, and admission sources. Cleaned data by converting numerical columns, mapping state abbreviations, and handling null values in categorical columns.",
+    methodology: "Analyzed diabetes prevalence changes over time, focusing on median cases and rate of change. Investigated demographic impacts (age, race, gender) on outcomes such as diagnoses, procedures, hospital time, and emergency visits. Examined the influence of prior medical care (admission source) on inpatient visits, procedures, hospital time, and in-hospital expiration rates. Determined drug usage patterns and their effects on glucose levels and readmission rates.",
+    results: "Revealed a steady increase in US diabetes prevalence, with an average growth rate of 0.18% annually (approximately 500k new diagnoses per year). Identified eight states (AL, KY, LA, MS, NM, OK, VA, WV) with a high rate of change (>0.25%) in diabetes prevalence. Demonstrated that increased age correlates with more diagnoses and longer hospital stays, but not an increase in procedures, suggesting inefficient care for the elderly. Found diabetic females are 1.22 times more likely to visit the emergency room than males, despite similar overall health outcomes. Highlighted that most minority groups visit the emergency room more than Caucasians (Hispanics 23% more, African-Americans 40% more), while Asians are 50% less likely but have similar death and transfer rates. Patients from skilled nursing facilities experienced three times higher expiration rates and consistently higher inpatient visits, procedures, and hospital time. Found insulin to be the most prescribed drug (4x more than metformin) but showed worse glucose level outcomes (30% patients >300 glucose levels vs. 23% for metformin) and no significant difference in readmission rates compared to metformin. Insulin prescription increased by 28% as symptoms worsened, compared to an 8% increase for metformin.",
+    insights: "Current standardized procedures may be inefficient for elderly diabetic patients. Sociocultural factors may influence emergency room visits among diabetic females and Asians. Policy interventions should target high-growth states and provide more resources to skilled nursing facilities. Over-prescription of insulin may occur, suggesting alternative medications like metformin could optimize care and reduce costs.",
     link: "https://github.com/juanyeffrey/Deciphering-Diabetes"
   }
 ];
@@ -128,32 +125,31 @@ const experiences = [
     role: "Teaching Assistant, Stats 303 Data Science",
     duration: "Sept 2024 – Present",
     location: "Evanston, IL",
-    description: "Mentored 45+ students in ML fundamentals and Python skills. Guided student projects on social impact topics, demonstrating exceptional ability to explain complex concepts clearly.",
+    description: "Mentored 80+ students in ML fundamentals and Python skills. Guided student projects on social impact topics, demonstrating exceptional ability to explain complex concepts clearly.",
     achievements: [
-      "Mentored 45+ students in machine learning fundamentals and statistical programming",
-      "Designed and graded assignments covering supervised/unsupervised learning algorithms",
-      "Led weekly lab sessions teaching Python, pandas, scikit-learn implementation",
-      "Guided 12 student teams on social impact ML projects (healthcare, education, environment)",
-      "Achieved 95% student satisfaction rating with consistent praise for clear explanations"
+      "Mentored 80+ students in machine learning fundamentals and statistical programming",
+      "Designed and graded assignments covering supervised learning algorithms and data preprocessing",
+      "Led weekly review sessions teaching Python, pandas, scikit-learn implementation",
+      "Guided 5 student teams on ML projects in real estate pricing and order fulfillment",
     ],
-    technologies: ["Python", "R", "Jupyter", "Scikit-learn", "Pandas", "Statistics"],
+    technologies: ["Python", "Jupyter", "Scikit-learn", "Pandas", "Numpy", "Matplotlib", "Seaborn"],
     logo: `${import.meta.env.BASE_URL}images/NU-logo.png`,
     link: "https://www.northwestern.edu/"
   },
   {
     company: "Learngle",
     role: "Founding Engineer",
-    duration: "Feb 2023 – Present",
+    duration: "Feb 2023 – Mar 2024",
     location: "Remote",
-    description: "Built a clinical informatics learning platform integrated with MGH/Harvard curriculum. Developed AI-powered educational tools serving medical students and residents.",
+    description: "Built a clinical informatics learning platform integrated with MGH/Harvard curriculum. Developed AI-powered educational tools serving medical students, residents, and physicians.",
     achievements: [
-      "Co-founded educational technology startup serving 500+ medical students",
-      "Developed AI-powered clinical case generation using GPT-4 and medical knowledge graphs",
+      "Co-founded educational technology startup serving 500+ users",
+      "Developed RAG based clinical case generation using GPT-4 and exam questions documents",
       "Built adaptive learning algorithms personalizing content for individual student progress",
       "Integrated platform with Harvard Medical School curriculum reaching 200+ residents",
       "Secured partnership with Massachusetts General Hospital for clinical content validation"
     ],
-    technologies: ["React", "Node.js", "Python", "OpenAI API", "PostgreSQL", "AWS"],
+    technologies: ["React", "Node.js", "Python", "OpenAI API", "RAG", "MongoDB"],
     logo: `${import.meta.env.BASE_URL}images/learngle-logo.png`,
     link: "https://learngle.com/"
   },
@@ -165,12 +161,12 @@ const experiences = [
     description: "Created predictive models and cluster analyses using clinical data from MIMIC-IV. Developed novel ensemble methods for healthcare prediction with rigorous methodological approach.",
     achievements: [
       "Developed machine learning models for emergency department resource allocation",
-      "Published 5 peer-reviewed papers in top-tier medical and AI conferences",
       "Created clustering algorithms identifying latent patient phenotypes from EHR data",
       "Collaborated with physicians to translate clinical needs into ML solutions",
-      "Presented research findings at 3 international conferences with 147 total citations"
+      "Published peer-reviewed papers in top-tier medical and AI conferences",
+      "Presented research findings at 4 conferences through poster and oral presentations"
     ],
-    technologies: ["Python", "R", "MIMIC-IV", "Scikit-learn", "Statistical Analysis"],
+    technologies: ["Python", "Scikit-learn", "Supervised Learning", "Unsupervised Learning", "Clustering", "Statistical Analysis"],
     logo: `${import.meta.env.BASE_URL}images/harvard-logo.png`,
     link: "https://significancelab.org/"
   }
@@ -182,8 +178,8 @@ const research = [
     authors: "El Ariss A.B., Kijpaisalratana N., Ahmed S., Yuan J., Coleska A., Marshall A., Luo A.D., He S.",
     venue: "American Journal of Emergency Medicine",
     date: "2024",
-    abstract: "We developed and validated a comprehensive ML framework for predicting emergency department resource needs using MIMIC-IV data. The framework combines ensemble methods with real-time monitoring to optimize staffing and equipment allocation.",
-    contributions: "Co-authored research contributing to algorithm development and statistical validation. Implemented novel ensemble approach combining time-series forecasting with patient acuity scoring.",
+    Description: "We developed and validated a comprehensive ML framework for predicting emergency department resource needs using MIMIC-IV data. The framework combines ensemble methods with real-time monitoring to optimize resource and equipment allocation.",
+    contributions: "Co-authored research contributing to algorithm development and statistical validation. Implemented novel ensemble approach combining patient acuity with resource forecasting.",
     link: "https://pubmed.ncbi.nlm.nih.gov/39127019/"
   },
   {
@@ -191,66 +187,68 @@ const research = [
     authors: "El Ariss A.B., Kijpaisalratana N., Yuan J., Mohamed A.M.A., Corscadden L.",
     venue: "ConductScience Proceedings",
     date: "2024",
-    abstract: "Developed an NLP tool to automatically parse and extract methodological information from scientific papers to improve research reproducibility. The system uses transformer models to identify key experimental parameters and procedures.",
-    contributions: "Co-authored research contributing to NLP pipeline design, evaluated model performance, and conducted user studies with researchers from 15 institutions.",
+    Description: "Developed an NLP tool to automatically parse and extract methodological information from scientific papers to improve research reproducibility. The system uses transformer models to identify key experimental parameters and procedures.",
+    contributions: "Co-authored research contributing to NLP pipeline design and evaluated model performance on scientific text. Implemented transformer-based models for information extraction.",
     link: "https://research.conductscience.com/articles/conductscience-proceedings/v1/i1/nexusgraph-nlp-innovation-for-scientific-methodology-replication"
   },
   {
     title: "The Emergency Leadership Dashboard: A Comprehensive System for Visualizing Operations across Educational, Administrative, and Research Sectors",
-    authors: "Yuan J., Al-Rashid H., Khan M., et al.",
+    authors: "Al Salamah Tareq., El Ariss A.B., Kijpaisalratana N.,  Yuan J. Abuguyan F., He S.",
     venue: "ConductScience Proceedings", 
     date: "2024",
-    abstract: "Created an interactive dashboard system for visualizing and analyzing operational data from emergency departments in Saudi Arabia. Integrated multiple data sources to provide real-time insights for hospital administrators.",
-    contributions: "Led technical architecture design, implemented data visualization components, conducted stakeholder interviews and user experience testing.",
+    Description: "Created an interactive dashboard system for visualizing and analyzing operational data from emergency departments in Saudi Arabia. Integrated multiple data sources to provide real-time insights for hospital administrators.",
+    contributions: "Led technical architecture design and implemented data visualization components.",
     link: "https://conductscience.org/articles/conductscience-proceedings/v1/i1/the-emergency-leadership-dashboard-a-comprehensive-system-for-visualizing-operations-across-educational-administrative-and-research-sectors"
   },
   {
     title: "Network Analysis in Global Emergency Medicine: Mapping Collaborative Structures and Enhancing Connectivity", 
-    authors: "Yuan J., Patel N., Wilson R., et al.",
+    authors:"Kijpaisalratana N., El Ariss A.B., Menon P., Yuan J., Chen D., Shannon K., Memon R., Danaher-Garcia N., Kivlehan S., He S.",
     venue: "ConductScience Proceedings",
     date: "2024",
-    abstract: "Applied network analysis techniques to map collaboration patterns in global emergency medicine research. Identified key structural patterns to enhance international connectivity and knowledge sharing.",
+    Description: "Applied network analysis techniques to map collaboration patterns in global emergency medicine research. Identified key structural patterns to enhance international connectivity and knowledge sharing.",
     contributions: "Developed network analysis algorithms, conducted statistical modeling of collaboration patterns, created visualization tools for research network mapping.",
     link: "https://conductscience.org/articles/conductscience-proceedings/v1/i1/network-analysis-in-global-emergency-medicine-mapping-collaborative-structures-and-enhancing-connectivity"
   },
   {
     title: "Latent shock identification through trajectory of shock index in emergency setting",
-    authors: "Chen S., Yuan J., Martinez L., et al.",
-    venue: "Academic Emergency Medicine",
+    authors: "Kijpaisalratana N., El Ariss A.B.R., Yuan J., Renne C., Lee J., He S.",
+    venue: "Society of Academic Emergency Medicine",
     date: "2024",
-    abstract: "Developed clustering models to identify latent shock states in emergency patients using Shock Index trajectories. The approach enables earlier detection of deteriorating patients who might not meet traditional shock criteria.",
+    Description: "Developed clustering models to identify latent shock states in emergency patients using Shock Index trajectories. The approach enables earlier detection of deteriorating patients who might not meet traditional shock criteria.",
     contributions: "Co-designed clustering algorithms, performed statistical validation, analyzed temporal patterns in patient data, contributed to clinical interpretation of results.",
     link: "https://onlinelibrary.wiley.com/doi/10.1111/acem.14906"
   }
 ];
 
 const education = {
-  degree: "Combined BS/MS Program",
-  major: "Statistics and Data Science, with additional major in Biological Sciences",
+  degree: "Combined BS/MS in Statistics and Data Science",
+  major: "Undergrad degree in Data Science and Biological Sciences",
   university: "Northwestern University",
   location: "Evanston, IL",
-  graduationDate: "Expected June 2026",
+  graduationDate: " June 2026",
   gpa: "3.98/4.0",
   relevantCoursework: [
-    "STAT 320-1,2,3: Statistical Theory & Methods",
-    "STAT 350: Regression Analysis", 
-    "STAT 353: Advanced Regression",
-    "STAT 415: Introduction to Machine Learning",
-    "STAT 301-1,2,3: Data Science with R",
-    "STAT 302: Data Visualization",
+    "STAT 303-1,2,3: Data Science with Python",
     "STAT 304: Data Structures & Algorithms for Data Science",
     "STAT 305: Information Management for Data Science",
+    "STAT 320-1,2: Statistical Theory & Methods",
+    "STAT 350: Regression Analysis", 
+    "STAT 353: Advanced Regression",
     "STAT 362: Advanced Machine Learning for Data Science",
-    "MATH 240: Linear Algebra",
-    "MATH 230-1,2: Multivariable Calculus",
-    "BIOL_SCI 323: Bioinformatics"
+    "STAT 390: Data Science Capstone",
+    "STAT 461: Machine Learning on Graphs",
+    "IEMS 490: Deep Generative AI",
+    "BIOL_SCI 323: Bioinformatics",
+    "BIOL_SCI 337: Biostatistics",
+    "BIOL_SCI 338: Modeling Biological Dynamics",
   ],
   honors: [
-    "Dean's List (Fall 2022, Winter 2023, Spring 2023, Fall 2023, Winter 2024, Spring 2024, Fall 2024)",
-    "Northwestern Merit Scholarship Recipient",
-    "Phi Beta Kappa Honor Society (Junior Year Induction)",
-    "Outstanding Achievement in Statistics Award",
-    "Undergraduate Research Grant Recipient"
+    "CME AI/ML Team Challenge Winner (2024)",
+    "MD+ Datathon Runner Up (2024)",
+    "Northwestern Conference Travel Grant Recipient (2023, 2024)",
+    "Northwestern Undergraduate Research Grant Recipient (2023)",
+    "Molecular Biosciences Undergraduate Research Grant Recipient (2022)",
+    "Dean's List (All Quarters)",
   ]
 };
 
@@ -323,15 +321,9 @@ export default function Portfolio() {
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
             <div className="lg:col-span-2">
-              <p className="text-gray-700 mb-6 leading-relaxed font-medium">
-                I'm a Northwestern University combined BS/MS student pursuing degrees in Data Science, Statistics, and Biological Sciences, with a passion for developing AI solutions that make a meaningful impact on healthcare and society. My unique background combines rigorous statistical training with deep biological knowledge, enabling me to tackle complex problems at the intersection of technology and human well-being.
-              </p>
-              <p className="text-gray-700 mb-6 leading-relaxed font-medium">
-                What drives me is the potential to use machine learning not just to solve technical challenges, but to address real human needs. Whether it's reducing bias in clinical AI systems, optimizing healthcare resource allocation, or making education more accessible, I'm motivated by projects that can improve lives at scale.
-              </p>
-              <p className="text-gray-700 mb-6 leading-relaxed font-medium">
-                I believe in building <strong>impactful, ethical AI solutions</strong> that prioritize fairness, transparency, and social good. My approach to machine learning is grounded in rigorous scientific methodology, ensuring that models are not only accurate but also responsible and interpretable. I'm particularly committed to addressing bias in AI systems and ensuring that technological advances benefit all communities equitably.
-              </p>
+              <p className="text-gray-700 mb-6 leading-relaxed font-medium"> I’m a BS/MS student at Northwestern University studying Data Science, Statistics, and Biological Sciences, where I focus on building machine learning systems that create real-world impact. With a foundation in both computational methods and human-centered domains like healthcare and finance, I bring an interdisciplinary approach to solving complex, high-stakes problems through data. </p>
+              <p className="text-gray-700 mb-6 leading-relaxed font-medium"> I care deeply about using AI responsibly—applying techniques like bias mitigation, interpretable modeling, and ethical evaluation to ensure technology benefits people equitably. I’m especially interested in projects that advance society, from improving clinical decision-making, expanding access to education, and building accurate, low-latency financial modeles. I approach machine learning not just as a technical challenge, but as a tool for meaningful change. </p> 
+              <p className="text-gray-700 mb-6 leading-relaxed font-medium"> Outside of work, you’ll usually find me shooting hoops, biking along the lakefront, or picking up new songs on guitar. I value curiosity, balance, and collaboration and I’m always looking to connect with others who share a passion for thoughtful, purpose-driven innovation. </p>
             </div>
 
             <div>
@@ -339,19 +331,19 @@ export default function Portfolio() {
               <div className="space-y-4">
                 <div className="p-4 bg-gray-50 rounded-lg">
                   <h4 className="font-semibold text-gray-800">2022</h4>
-                  <p className="text-sm text-gray-600">Started undergraduate studies at Northwestern, immediately drawn to the intersection of data science and biology</p>
+                  <p className="text-sm text-gray-600">Started my undergraduate studies at Northwestern, drawn to data science and healthcare</p>
                 </div>
                 <div className="p-4 bg-gray-50 rounded-lg">
                   <h4 className="font-semibold text-gray-800">2023</h4>
-                  <p className="text-sm text-gray-600">Joined Harvard Medical School's Significance Lab, beginning my journey in clinical AI research</p>
+                  <p className="text-sm text-gray-600">Joined Harvard Medical School's Significance Lab, beginning my journey in clinical AI research, and started developing Learngle</p>
                 </div>
                 <div className="p-4 bg-gray-50 rounded-lg">
                   <h4 className="font-semibold text-gray-800">2024</h4>
-                  <p className="text-sm text-gray-600">Began internship at CME Group, applying ML to financial systems while continuing medical research</p>
+                  <p className="text-sm text-gray-600">Began my internship at the CME Group, applying ML to financial systems while continuing clinical AI research</p>
                 </div>
                 <div className="p-4 bg-gray-50 rounded-lg">
                   <h4 className="font-semibold text-gray-800">2025</h4>
-                  <p className="text-sm text-gray-600">Expected graduation with plans to pursue ML engineering roles focused on healthcare applications</p>
+                  <p className="text-sm text-gray-600">Began my graduate coursework in Data Science, joined the REAL Lab at Northwestern combing LLMs and GNNs for drug discovery</p>
                 </div>
               </div>
             </div>
@@ -533,8 +525,8 @@ export default function Portfolio() {
                   <p className="text-gray-600 mb-2"><strong>Published in:</strong> {paper.venue} ({paper.date})</p>
                   
                   <div className="mb-4">
-                    <h4 className="text-lg font-semibold text-gray-700 mb-2">Abstract</h4>
-                    <p className="text-gray-600 leading-relaxed">{paper.abstract}</p>
+                    <h4 className="text-lg font-semibold text-gray-700 mb-2">Description</h4>
+                    <p className="text-gray-600 leading-relaxed">{paper.Description}</p>
                   </div>
 
                   <div className="mb-4">
