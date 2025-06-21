@@ -108,13 +108,12 @@ const experiences = [
     role: "Data Science Intern",
     duration: "June 2024 – Present",
     location: "Chicago, IL",
-    description: "Developed deep learning models for $2T daily trading volume and GCP-based data pipelines. Built real-time prediction systems with 99.7% uptime for finance and marketing operations.",
+    description: "Automated data retrieval for key financial and marketing databases. Designed and deployed full-lifecycle MLOps solution on Vertex AI and developed deep learning models for treasury note futures prediction",
     achievements: [
-      "Built neural network models processing 500K+ daily transactions with <50ms latency",
-      "Deployed ML pipelines on Google Cloud Platform reducing processing time by 40%",
-      "Created real-time anomaly detection system preventing $2.3M in potential trading losses", 
-      "Collaborated with quant team to optimize trading algorithms using ensemble methods",
-      "Presented findings to C-suite executives, leading to adoption of new risk models"
+      "Boosted data retrieval efficiency by 99% by implementing Agentic AI (NL2SQL) system for key databases",
+      "Led the full-lifecycle MLOps deployment for Product Market Qualified Leads (PMQL) prediction on Vertex AI",
+      "Developed and validated deep learning models for 10-year treasury note futures, leveraging Commitment of Traders data", 
+      "Enabled $360K in annual revenue by creating a scalable BigQuery SQL code repository for CME API customers"
     ],
     technologies: ["Python", "TensorFlow", "GCP", "BigQuery", "Docker", "Kubernetes"],
     logo: `${import.meta.env.BASE_URL}images/cme-logo.png`,
