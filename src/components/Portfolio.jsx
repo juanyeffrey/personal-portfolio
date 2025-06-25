@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { SiPython, SiTensorflow, SiPytorch, SiScikitlearn, SiPandas, SiMysql, SiDocker, SiKubernetes, SiGithub, SiLinkedin, SiOrcid, SiMaildotcom, SiR, SiJavascript, SiNumpy, SiGooglecloud, SiMongodb, SiApachespark, SiHuggingface } from "react-icons/si";
 import { FaAws, FaFileDownload, FaGraduationCap, FaEnvelope, FaCalendarAlt, FaBrain, FaHome, FaChartLine } from "react-icons/fa";
 import { TbBrandOpenai } from "react-icons/tb";
-import { MdHealthAndSafety } from "react-icons/md";
+import { MdHealthAndSafety, MdRecommend } from "react-icons/md";
 
 const sectionGradients = {
   home: "border-2 rounded-2xl border-transparent bg-gradient-to-r from-blue-100 via-indigo-50 to-purple-100 p-1",
@@ -60,6 +60,20 @@ const skills = {
 const projects = [
   {
     id: 1,
+    title: "HardGNN: Hard Negative Sampling for Graph-Based Recommendation",
+    tagline: "Enhancing sequential recommendation systems by integrating hard negative sampling into a Graph Neural Network architecture.",
+    category: "Graph Neural Network Recommender Systems",
+    technologies: ["Python", "TensorFlow", "Graph Neural Networks", "Numpy", "Scipy"],
+    image: <MdRecommend size={48} className="text-blue-600" />,
+    problemStatement: "Standard recommender systems often struggle to distinguish between easy and hard negative samples, limiting their ability to learn nuanced user preferences. This can lead to suboptimal recommendations, especially in sparse data environments where user-item interactions are limited.",
+    dataCollection: "Utilized three public benchmark datasets for sequential recommendation: Amazon, Movielens, and Gowalla. The data includes user behavior sequences, user-item interaction graphs split into time-based periods, and test sets for evaluation.",
+    methodology: "Built upon the SelfGNN framework, this model constructs multiple time-aware user-item interaction graphs and employs a GNN to generate user and item embeddings. An LSTM layer models temporal user behavior, while a hard negative sampling strategy uses cosine similarity to identify challenging negative items. The model is trained using a combination of a primary recommendation loss and an InfoNCE contrastive loss to refine embeddings.",
+    results: "The model was evaluated on Hit Rate (HR@10) and Normalized Discounted Cumulative Gain (NDCG@10). The integration of hard negative sampling with a contrastive loss function demonstrated improved performance over the baseline SelfGNN model. This approach led to more accurate and robust sequential recommendations across the different datasets.",
+    insights: "Explicitly training a model to distinguish between positive items and hard negative items (those that are semantically close but not interacted with) is more effective than using random negative sampling. This forces the model to learn a more discriminative embedding space. The hybrid architecture, combining a multi-graph GNN with an LSTM, effectively captures both long-term collaborative signals and short-term sequential user dynamics.",
+    link: "https://github.com/juanyeffrey/HardGNN"
+  },
+  {
+    id: 2,
     title: "LLM Bias Mitigation in Clinical Reasoning",
     tagline: "Assessing how age and gender affect LLM accuracy in clinical reasoning",
     category: "Natural Language Processing",
@@ -73,7 +87,7 @@ const projects = [
     link: "https://github.com/juanyeffrey/MDPlus_Datathon/tree/main"
   },
   {
-    id: 2,
+    id: 3,
     title: "Ensemble-Based Airbnb Price Prediction",
     tagline: "ML-powered dynamic pricing for the sharing economy",
     category: "Machine Learning",
@@ -87,7 +101,7 @@ const projects = [
     link: "https://github.com/juanyeffrey/Airbnb-Price-Prediction/tree/main"
   },
   {
-    id: 3,
+    id: 4,
     title: "Demographic Disparities in Diabetes Care Analytics",
     tagline: "Identified factors affecting diabetic patient outcomes to improve equitable care.",
     category: "Healthcare Analytics",
