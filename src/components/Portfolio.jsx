@@ -272,7 +272,7 @@ export default function Portfolio() {
     <div className="sticky top-0 z-50 bg-white py-3 mb-4 shadow-sm rounded-xl">
       <div className="flex justify-between items-center max-w-5xl mx-auto px-4">
         <div className="flex gap-4">
-          <a href={`${import.meta.env.BASE_URL}resume/Jeffrey_Yuan_Resume_2025.pdf`} download title="Download Resume">
+          <a href={`${import.meta.env.BASE_URL}resume/Jeffrey_Yuan_Resume.pdf`} download title="Download Resume">
             <FaFileDownload size={24} className="text-gray-600 hover:text-gray-900" />
           </a>
           <a href="mailto:mailjeffreyyuan@gmail.com" title="Email Me">
